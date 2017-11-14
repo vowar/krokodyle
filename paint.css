@@ -5,3 +5,12 @@ canvas{
     border: 1px solid; 
     float: left
 }
+#pointer{
+    position: absolute;
+    border: 1px solid;
+    border-radius: 50%;
+    display: none;
+    pointer-events: none;
+    
+
+}

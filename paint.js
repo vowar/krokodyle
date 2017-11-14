@@ -41,7 +41,17 @@ function getCoords(elem) { // кроме IE8-
   }
 
   document.onmousemove = function(){
-      if(event.pageY< getCoords(canvas))
+      if(event.pageY< getCoords(canvas).top + canvas.clientHeight && event.pageY >getCoords(canvas).top && event.pageX >getCoords(canvas).left && event.pageX <  getCoords(canvas).left + canvas.clientWidth){
+        console.log()
+        pointer.style.width = `${document.getElementById('line').value}px`;
+        pointer.style.height = `${document.getElementById('line').value}px`;
+        pointer.style.display = "block";
+        pointer.style.left = `${event.pageX - pointer.clientWidth / 2}px`;
+        pointer.style.top = `${event.pageY - pointer.clientHeight / 2}px`;
+      }else{
+        pointer.style.display = "none";
+        
+      }
   }
 
 // canvas.onmouseenter = function () {
@@ -80,7 +90,7 @@ canvas.onclick = function () {
         draw: function (color, circle_width) {
             this.fill(color);
             ctx.beginPath();
-            ctx.arc(this.x, this.y, circle_width, 0, Math.PI * 2);
+            ctx.arc(this.x, this.y, circle_width/2, 0, Math.PI * 2);
             ctx.stroke();
 
             ctx.fill();

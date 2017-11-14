@@ -59,7 +59,7 @@ canvas.onmousedown = function(){
     var line ={
         x: event.pageX,
         y: event.pageY,
-        move: function(){moveTo(this.x, this.y)},
+        move: function(){ctx.moveTo(this.x, this.y)},
         fill: function (c) { ctx.strokeStyle = c },
         draw: function(){
             this.move()

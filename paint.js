@@ -54,59 +54,52 @@ function getCoords(elem) { // кроме IE8-
       }
   }
 
-// canvas.onmouseenter = function () {
-
-//     pointer.style.width = "50px";
-//     pointer.style.height = "50px";
-//     pointer.style.position = "absolute";
-//     pointer.style.left = `${event.pageX - pointer.clientWidth / 2}px`;
-//     pointer.style.top = `${event.pageY - pointer.clientHeight / 2}px`;
-//     pointer.style.backgroundColor = `red`;
-//     pointer.style.zIndex = `100`;
-
-//     canvas.onmousemove = function () {
-//         //console.log(event.target)
-//         pointer.style.display = "block";
-//         pointer.style.left = `${event.pageX - pointer.clientWidth / 2}px`;
-//         pointer.style.top = `${event.pageY - pointer.clientHeight / 2}px`;
-//     }
-//     pointer.onmousemove = function () {
-//         pointer.style.display = "block";
-//         pointer.style.left = `${event.pageX - pointer.clientWidth / 2}px`;
-//         pointer.style.top = `${event.pageY - pointer.clientHeight / 2}px`;
-//     }
-//     canvas.onmouseleave = function () {
-//         pointer.style.display = "none";
-//     }
-// }
+canvas.onmousedown = function(){
+    
+    var line ={
+        x: event.pageX,
+        y: event.pageY,
+        move: function(){moveTo(this.x, this.y)},
+        fill: function (c) { ctx.strokeStyle = c },
+        draw: function(){
+            this.move()
+            canvas.onmousemove = () => {
+                //console.log(this)
+                this.fill(document.getElementById("color_inp").value)
+                var mx = event.pageX
+                var my = event.pageY
+                
+                ctx.lineWidth = document.getElementById("line").value;
+                ctx.lineTo(mx, my);
+                ctx.stroke();
+                canvas.onmouseup = ()=>{
+                    canvas.onmousemove = null;
+                }
+            }
+        } 
+    }
+    //console.log(this)
+    line.draw()
+}
 
 
 canvas.onclick = function () {
-
     var circl = {
         x: event.pageX,
         y: event.pageY,
         fill: function (c) { ctx.fillStyle = c },
         draw: function (color, circle_width) {
+            //console.log(this)
             this.fill(color);
             ctx.beginPath();
             ctx.arc(this.x, this.y, circle_width/2, 0, Math.PI * 2);
-            ctx.stroke();
+            //ctx.stroke();
 
             ctx.fill();
         },
-        // touch: function (x, y) {
-        //     console.log(event.clientY)
-        //     console.log(event.pageY)
-        //     var isPath = ctx.isPointInPath(x, y);
-        //     if (isPath) {
-        //         console.log(this);
-        //         this.draw('red')
-        //     }
-        // }
+
 
     }
-    colors = ['green', "red", "blue", "yellow"]
     circl.draw(document.getElementById("color_inp").value, document.getElementById("line").value)
 }
 
@@ -140,3 +133,15 @@ canvas.onclick = function () {
 //     }
 
 // }   
+
+
+
+        // touch: function (x, y) {
+        //     console.log(event.clientY)
+        //     console.log(event.pageY)
+        //     var isPath = ctx.isPointInPath(x, y);
+        //     if (isPath) {
+        //         console.log(this);
+        //         this.draw('red')
+        //     }
+        // }

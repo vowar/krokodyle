@@ -1,17 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Painter</title>
     <link rel="stylesheet" href="paint.css">
     <script src="paint.js" defer></script>
+    <script src="main.js" defer></script>
 
 </head>
-<body>
-    <div id="pointer" ></div>
-    <canvas id="canv" width="1000" height="600"></canvas>
-    <input id="line" type="number" value="20" min="1"  max="20">Line width
-    <input id="color_inp" type="color" >Line color
 
+<body>
+
+    <div id="pos_wrap">
+
+        <div id="pointer"></div>
+        <!-- Draw -->
+        <div class="draw-field" >
+            <div class="name-time"></div>
+            <canvas  id="canv" width="850" height="600"></canvas>
+            <div class="panel">
+                <div class="example">
+                    <div id="example__item"></div>
+                </div>
+                <div class="drawing-tools">
+                    <div id="chose-colors"></div>
+                    <div id="back-event"></div>
+                    <div id="clear-canvas"></div>
+                    <br>
+                    <input id="color_inp" type="color">
+                    <span class="tool-name">: Цвет</span>
+                    <input id="color_back" type="color">
+                    <span class="tool-name">: Фон</span>
+                    <input id="line" type="range" value="20" min="1" max="64">
+                    <span class="tool-name">: Кисть</span>
+                    <input id="line-opacity" type="range" value="20" min="1" max="64">
+                    <span class="tool-name">: Прозр.</span>
+
+                </div>
+            </div>
+        </div>
+        <!-- Chat -->
+        <div class="chat-field">
+
+        </div>
+
+    </div>
 </body>
+
 </html>

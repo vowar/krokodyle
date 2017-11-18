@@ -1,10 +1,119 @@
 body{
     margin: 0;
+    background: #dfe3ee;
+}
+#pos_wrap{
+    width: 1150px;
+    margin: 0 auto;
+    background-color: white;
+    margin-top: 50px;
+}
+.draw-field{
+    width: 852px;
+    /* background-color: lightskyblue; */
+    display: inline-block;
+    vertical-align: top;
+}
+.name-time{
+    height: 50px;
+    width: 852px;
+    background-color:  yellowgreen
 }
 canvas{
-    border: 1px solid; 
-    float: left
+    border-top: 2px solid #eee; 
+    border-bottom: 2px solid #eee; 
+    
 }
+.panel{
+    width: 852px;
+    height: 90px;
+    margin-top: 7px;
+}
+.example{
+    width: 80px;
+    height: 80px;
+    /* background-color: lime; */
+    background-image: url("png_background.jpg");
+    border: 1px solid;
+    display: inline-block;
+    background-position: -1px -1px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+#example__item{
+    border-radius: 50%;
+}
+.drawing-tools{
+    display: inline-block;
+    vertical-align: top;
+}
+#chose-colors{
+    height: 40px;
+    margin-bottom: 10px;
+    margin-right: 50px;
+    display: inline-block;
+}
+.color-item{
+    width: 40px;
+    height: 40px;
+    margin-right: 6px;
+    box-sizing: border-box;
+    border: 2px solid #d4d4d4;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-block;
+}
+.color-item:hover{
+    border-color: black
+}
+#clear-canvas{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background-size: 85%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('clear_canvas.png');
+    box-sizing: border-box;
+    display: inline-block;
+}
+#back-event{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background-size: 85%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('back_event.png');
+    margin-right: 20px;
+    box-sizing: border-box;
+    display: inline-block
+}
+.tool-name{
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-right: 10px
+}
+#line {
+    width: 82px;
+    position: relative;
+    top: 5px;
+}
+#line-opacity {
+    width: 82px;
+    position: relative;
+    top: 5px;
+}
+.chat-field{
+    width: 294px;
+    height: 760px;
+    background-color: cornflowerblue;
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+
 #pointer{
     position: absolute;
     border: 1px solid;

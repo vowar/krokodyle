@@ -15,11 +15,12 @@ p{
     background-color: cornflowerblue;
 }
 #pos_wrap{
-    width: 1256px;
+    width: 1266px;
     margin: 0 auto;
     padding-left: 9px;
     background-color: white;
     margin-top: 50px;
+    border-top: 2px solid #eee;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
@@ -27,6 +28,7 @@ p{
     width: 852px;
     display: inline-block;
     vertical-align: top;
+    margin-right: 10px;
     /* position: relative; */
 }
 .chat-field{
@@ -65,7 +67,9 @@ canvas{
     top: 51px;;
     left: 0;
     z-index: 1;
+    transition: .2s linear;
 }
+
 #chose-word h1{
     margin: 0;
     margin-left: auto;
@@ -88,7 +92,7 @@ canvas{
 .panel{
     width: 852px;
     height: 90px;
-    margin-top: 7px;
+    margin-top: 10px;
 }
 .example{
     width: 80px;
@@ -167,8 +171,6 @@ canvas{
 }
 
 
-
-
 #pointer{
     position: absolute;
     border: 1px solid;
@@ -200,12 +202,17 @@ canvas{
     width: 364px;
     height: 26px;
     font-size: 14px;
-    line-height: 26px;
+    line-height: 24px;
     padding-left: 10px;
     margin-bottom: 5px;
     color: white;
     text-shadow: 1px 1px 0px rgba(0,0,0,0.3);
     background-color: rgb(71, 175, 71);
+}
+#inner_type{
+    margin-left: 10px;
+    font-size: 17px;
+    font-weight: bold;
 }
 #variants-list{
     width: 372px;

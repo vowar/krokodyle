@@ -9,12 +9,63 @@ var players = [];
                     wins: 0
                 }
                 players = [...players, obj]
+                beginGame()
                 //console.log(players)
             }else {
                 enterName()
             }
         }
     });
+var words = [
+        {name: "яблоко", type: "существительное"},
+        {name: "золото", type: "существительное"},
+        {name: "дождь", type: "существительное"},
+        {name: "светить", type: "глагол"},
+        {name: "гореть", type: "глагол"},
+        {name: "плакать", type: "глагол"},
+    ];
+
+var chose_panel = document.getElementById("chose-word");
+var buttons = document.getElementById("chose_buttons");
+var chose_words = [1, 2, 3];
+
+function beginGame(){
+    var rand_words = words;
+    shuffle(rand_words)
+    chose_panel.style.visibility = "";
+    chose_panel.style.opacity = "1";
+    buttons.innerHTML = "";
+    buttons.innerHTML = `
+        <button class="chose_btn" data="${rand_words[0].type}">${rand_words[0].name}</button>
+        <button class="chose_btn" data="${rand_words[1].type}">${rand_words[1].name}</button>
+        <button class="chose_btn" data="${rand_words[2].type}">${rand_words[2].name}</button>`;
+    chose_panel.appendChild(buttons)
+}
+
+chose_panel.onclick = function(){
+    if(event.target.className == "chose_btn"){
+        document.getElementById("word-name").innerHTML = `Нарисуйте слово: <b>"${event.target.innerHTML.toUpperCase()}"</b>`;
+        document.getElementById("inner_type").innerHTML = event.target.getAttribute("data");
+        if(event.target.getAttribute("data")=='глагол'){
+            document.getElementById("word-type").style.backgroundColor = "rgb(236,105,109)";
+            
+        }else if(event.target.getAttribute("data")=="прилагательное"){
+            document.getElementById("word-type").style.backgroundColor = "rgb(51, 191, 255)";
+        }else{
+            document.getElementById("word-type").style.backgroundColor = "rgb(71, 175, 71)";
+            
+            
+        }
+        chose_panel.style.visibility = "hidden";
+        chose_panel.style.opacity = "0";
+    }
+}
+
+document.getElementById('inner_type').onclick = function(){
+    beginGame()
+    
+}
+
 
 var line = document.getElementById("line");
 var color = document.getElementById("color_inp");
@@ -66,19 +117,11 @@ send_answer.onclick = function(){
         variant.innerHTML = `
             <span class="variant-author">${players[0].name}:</span>
             <span class="main-text">${answer_inp.value}</span>`
-        document.getElementById('variants-list').appendChild(variant)
+        document.getElementById("variants-list").appendChild(variant)
         answer_inp.value = "";
     }
 }
 
-var words = [
-    {name: "яблоко", type: "существительное"},
-    {name: "золото", type: "существительное"},
-    {name: "дождь", type: "существительное"},
-    {name: "светить", type: "глагол"},
-    {name: "гореть", type: "глагол"},
-    {name: "плакать", type: "глагол"},
-];
 
 
 
@@ -100,14 +143,17 @@ var words = [
 
 
 
+function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+}
 
 
-
-
-
-
-
-
+function getRandom(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
 
 function getHexRGBColor(color)
 {

@@ -21,9 +21,11 @@
                 <span id="timer">4:20 сек.</span>
                 <div id="chose-word">
                     <h1>Выберите слово для рисования: </h1>
-                    <button class="chose_btn">Texttdsfadasd</button>
-                    <button class="chose_btn">Texttdsfadasd</button>
-                    <button class="chose_btn">Texttdsfadasd</button>
+                    <div id="chose_buttons">
+                        <!-- <button class="chose_btn">Texttdsfadasd</button> -->
+                        <!-- <button class="chose_btn">Texttdsfadasd</button> -->
+                        <!-- <button class="chose_btn">Texttdsfadasd</button> -->
+                    </div>
                 </div>
                 
             </div>
@@ -54,15 +56,15 @@
         <!-- Chat -->
         <div class="chat-field">
             <div class="chat_inner">
-                <p class="rules"><b style="color:red">Правила игры:</b> Рисующий при помощи холста и кисти изображает слово. Остальные игроки должны угадать это слово по рисунку. Рисующий может осталвять подсказки, ставя палец вверх или вниз.</p>
-                <p id="word-type"><span>Часть речи: </span></p>
+                <p class="rules"><b style="color:red">Правила игры:</b> Рисующий при помощи холста и кисти изображает слово. Остальные игроки должны угадать это слово по рисунку. Рисующий может оставлять подсказки, ставя палец вверх или вниз.</p>
+                <p id="word-type">Часть речи: <span id="inner_type"></span></p>
                 <div id="variants-list">
-                    <p class="variant"><span class="variant-author">Vowar</span>Text text text</p>
+                    <p class="variant"><span class="variant-author">vowar</span>Text text text</p>
                 </div>
             </div>
 
             <div class="input_container">
-                <input maxlength="40" type="text"  id="answer" placeholder="Ответ">
+                <input maxlength="60" type="text"  id="answer" placeholder="Ответ">
                 <button id="answer-btn">Отправить ответ</button>
             </div>
         </div>

@@ -11,14 +11,25 @@
 </head>
 
 <body>
-
     <div id="pos_wrap">
 
         <div id="pointer"></div>
         <!-- Draw -->
         <div class="draw-field" >
-            <div class="name-time"></div>
-            <canvas  id="canv" width="850" height="600"></canvas>
+            <div class="name-time">
+                <span id="word-name">Нарисуйте слово:</span>
+                <span id="timer">4:20 сек.</span>
+                <div id="chose-word">
+                    <h1>Выберите слово для рисования: </h1>
+                    <button class="chose_btn">Texttdsfadasd</button>
+                    <button class="chose_btn">Texttdsfadasd</button>
+                    <button class="chose_btn">Texttdsfadasd</button>
+                </div>
+                
+            </div>
+            
+            <canvas  id="canv" width="850" height="600">
+            </canvas>
             <div class="panel">
                 <div class="example">
                     <div id="example__item"></div>
@@ -42,7 +53,18 @@
         </div>
         <!-- Chat -->
         <div class="chat-field">
+            <div class="chat_inner">
+                <p class="rules"><b style="color:red">Правила игры:</b> Рисующий при помощи холста и кисти изображает слово. Остальные игроки должны угадать это слово по рисунку. Рисующий может осталвять подсказки, ставя палец вверх или вниз.</p>
+                <p id="word-type"><span>Часть речи: </span></p>
+                <div id="variants-list">
+                    <p class="variant"><span class="variant-author">Vowar</span>Text text text</p>
+                </div>
+            </div>
 
+            <div class="input_container">
+                <input maxlength="40" type="text"  id="answer" placeholder="Ответ">
+                <button id="answer-btn">Отправить ответ</button>
+            </div>
         </div>
 
     </div>

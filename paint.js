@@ -17,7 +17,7 @@ function getCoords(elem) { // кроме IE8-
 // Visual effects
 
 document.onmousemove = function () {
-    if (event.pageY < getCoords(canvas).top + canvas.clientHeight && event.pageY > getCoords(canvas).top && event.pageX > getCoords(canvas).left && event.pageX < getCoords(canvas).left + canvas.clientWidth) {
+    if (event.target != document.getElementById('chose-word') && event.pageY < getCoords(canvas).top + canvas.clientHeight && event.pageY > getCoords(canvas).top && event.pageX > getCoords(canvas).left && event.pageX < getCoords(canvas).left + canvas.clientWidth) {
         console.log()
         pointer.style.width = `${line.value}px`;
         pointer.style.height = `${line.value}px`;

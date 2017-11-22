@@ -131,18 +131,7 @@ var answer_inp = document.getElementById("answer");
 send_answer.onclick = function(){
     answerSending()
 }
-var objDiv = document.getElementById("variants-list")
 
-document.onkeydown = function (e) {
-    console.log(e.keyCode)
-    
-    e = e || window.event;
-    if (e.keyCode == 13) {
-        answerSending()
-        objDiv.scrollTop = objDiv.scrollHeight;
-    }
-    return true;
-}
 
 
 function answerSending() {

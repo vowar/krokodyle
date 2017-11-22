@@ -64,12 +64,32 @@ function backEvent() {
 document.getElementById("back-event").onclick = () => {
     backEvent()
 }
+
+var objDiv = document.getElementById("variants-list")
+var answer_inp = document.getElementById("answer");
+
+function answerSending() {
+    if(answer_inp.value != ""){
+        var variant = document.createElement("p");
+        variant.className = "variant";
+        variant.innerHTML = `
+            <span class="variant-author">${players[0].name}:</span>
+            <span class="main-text">${answer_inp.value}</span>`
+        document.getElementById("variants-list").appendChild(variant)
+        answer_inp.value = "";
+    }
+}
 document.onkeydown = function (e) {
+    console.log(e.keyCode)
     e = e || window.event;
     if (e.ctrlKey && e.keyCode == 90) {
         backEvent()
+
+    }else if (e.keyCode == 13) {
+        answerSending()
+        objDiv.scrollTop = objDiv.scrollHeight;
     }
-    return true;
+    //return true;
 }
 
 var obj ="";

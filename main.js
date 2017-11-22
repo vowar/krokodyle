@@ -84,8 +84,6 @@ beginGame()
 
 }
 
-
-
 var line = document.getElementById("line");
 var color = document.getElementById("color_inp");
 var color_background = document.getElementById("color_back");
@@ -129,18 +127,35 @@ if(event.target.className == "color-item"){
 }
 var send_answer = document.getElementById("answer-btn");
 var answer_inp = document.getElementById("answer");
+
 send_answer.onclick = function(){
-if(answer_inp.value != ""){
-    var variant = document.createElement("p");
-    variant.className = "variant";
-    variant.innerHTML = `
-        <span class="variant-author">${players[0].name}:</span>
-        <span class="main-text">${answer_inp.value}</span>`
-    document.getElementById("variants-list").appendChild(variant)
-    answer_inp.value = "";
+    answerSending()
 }
+var objDiv = document.getElementById("variants-list")
+
+document.onkeydown = function (e) {
+    console.log(e.keyCode)
+    
+    e = e || window.event;
+    if (e.keyCode == 13) {
+        answerSending()
+        objDiv.scrollTop = objDiv.scrollHeight;
+    }
+    return true;
 }
 
+
+function answerSending() {
+    if(answer_inp.value != ""){
+        var variant = document.createElement("p");
+        variant.className = "variant";
+        variant.innerHTML = `
+            <span class="variant-author">${players[0].name}:</span>
+            <span class="main-text">${answer_inp.value}</span>`
+        document.getElementById("variants-list").appendChild(variant)
+        answer_inp.value = "";
+    }
+}
 
 
 

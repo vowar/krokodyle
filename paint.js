@@ -37,13 +37,11 @@ document.getElementById('clear-canvas').onclick = function () {
 }
 // Draw logic
 var coord_array = [];
-document.getElementById("back-event").onclick = () => {
+
+function backEvent() {
     coord_array.pop();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    
     for (var i = 0; i < coord_array.length; i++) {
-
         if (coord_array[i].move_coord.length !== 0) {
             ctx.beginPath();
             ctx.lineWidth = coord_array[i].width;
@@ -53,18 +51,27 @@ document.getElementById("back-event").onclick = () => {
                 ctx.lineTo(coord_array[i].move_coord[j].x,coord_array[i].move_coord[j].y)
             }
             ctx.stroke(); 
-            
         } else {
             ctx.beginPath();
             ctx.arc(coord_array[i].startX, coord_array[i].startY, coord_array[i].width /2, 0, Math.PI * 2);
             ctx.fillStyle = coord_array[i].colr;
             ctx.fill();
         }
-
-         
     }
     console.log(coord_array)
 }
+
+document.getElementById("back-event").onclick = () => {
+    backEvent()
+}
+document.onkeydown = function (e) {
+    e = e || window.event;
+    if (e.ctrlKey && e.keyCode == 90) {
+        backEvent()
+    }
+    return true;
+}
+
 var obj ="";
 
 canvas.onmousedown = function () {

@@ -19,7 +19,7 @@ p{
     margin: 0 auto;
     padding-left: 9px;
     background-color: white;
-    margin-top: 50px;
+    margin-top: 5px;
     border-top: 2px solid #eee;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
@@ -29,11 +29,13 @@ p{
     display: inline-block;
     vertical-align: top;
     margin-right: 10px;
+    user-select: none;  
+    
     /* position: relative; */
 }
 .chat-field{
     width: 392px;
-    height: 772px;
+    height: 655px;
     display: inline-block;
     vertical-align: top;
     border-left: 2px solid #d6d6d6;
@@ -56,17 +58,17 @@ p{
     margin-right: 15px;
 }
 canvas{
-    border: 2px solid #eee;
+    border: 1px solid #eee;
     position: relative;
 }
 #chose-word{
     width: 850px;
-    height: 600px;
+    height: 500px;
     background-color: #eee;
     position: absolute;
     top: 51px;;
-    left: 0;
-    z-index: 1;
+    left: 1px;
+    z-index: 10;
     transition: .2s linear;
 }
 
@@ -74,7 +76,7 @@ canvas{
     margin: 0;
     margin-left: auto;
     text-align: center;
-    margin-top: 55px;
+    margin-top: 35px;
     margin-bottom: 40px;
     font-weight: 400;
     pointer-events: none;
@@ -177,14 +179,14 @@ canvas{
     border-radius: 50%;
     display: none;
     pointer-events: none;
-    
+    z-index: 2;
 
 }
 .chat_inner{
     background-color: white;
     width: 372px;
     margin-left: 10px;
-    height: 673px;
+    height: 560px;
     margin-top: 10px
 }
 .rules{
@@ -216,7 +218,7 @@ canvas{
 }
 #variants-list{
     width: 372px;
-    height: 556px;
+    height: 420px;
     border-bottom: 2px solid #d6d6d6;
     overflow-y: scroll;
 }
@@ -247,7 +249,7 @@ canvas{
     width: 372px;
     height: 50px;
     background-color: white;
-    margin-top: 17px;
+    margin-top: 13px;
     margin-left: 10px;
     border: 2px solid #d6d6d6;
 }
